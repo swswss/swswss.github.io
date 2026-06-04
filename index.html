@@ -126,10 +126,10 @@
     .hero h1 {
       font-family: var(--serif);
       font-weight: 600;
-      font-size: 42px;
-      line-height: 1.05;
+      font-size: 28px;
+      line-height: 1.1;
       margin: 0 0 6px;
-      letter-spacing: -0.4px;
+      letter-spacing: -0.2px;
     }
     .hero .role {
       font-size: 16px;
@@ -201,6 +201,10 @@
     }
     .update .body { color: var(--text-soft); }
     .update .body strong { color: var(--text); }
+    .update .body ul { margin: 7px 0 2px; padding-left: 18px; }
+    .update .body li { margin: 3px 0; font-size: 14.5px; line-height: 1.5; }
+    .update .body li .pname { font-weight: 600; color: var(--text); }
+    .update .body li a { font-weight: 600; }
 
     /* ---------- PUBLICATIONS ---------- */
     .pub {
@@ -293,7 +297,7 @@
         padding: 36px 0 4px;
       }
       .photo { width: 120px; height: 120px; order: -1; }
-      .hero h1 { font-size: 34px; }
+      .hero h1 { font-size: 24px; }
       .update { grid-template-columns: 78px 1fr; gap: 10px; }
       .pub { grid-template-columns: 1fr; gap: 12px; }
       .thumb { width: 100%; height: 150px; }
@@ -324,20 +328,16 @@
         <h1>Jeongwoo Shin</h1>
         <p>
           Hi! I'm a Ph.D. student at the <strong>Graduate School of Data Science,
-          Seoul National University</strong>, advised by Prof.
+          Seoul National University</strong>, where I work in the
+          <strong>VIP Lab</strong> advised by Prof.
           <a href="https://scholar.google.com/citations?user=M-MfqpMAAAAJ&hl" target="_blank" rel="noopener">Joonseok Lee</a>.
-          I previously received my <strong>M.S. in Data Science</strong> at SNU
-          (thesis: <em>Self-Guided Masked Autoencoder</em>) and a B.S. in Landscape
-          Architecture and Rural System Engineering, also at SNU.
+          I also completed my <strong>M.S. in Data Science</strong> in the same lab.
         </p>
         <p>
-          My research centers on <strong>generative modeling</strong>—in particular
-          <strong>diffusion and flow matching</strong>. I am interested in
-          <strong>reward fine-tuning of diffusion models</strong>,
-          <strong>stochastic optimal control</strong>,
-          <strong>diffusion/flow model distillation</strong>, and
-          <strong>long video generation</strong>, along with the algorithmic and
-          theoretical foundations connecting them.
+          My research focuses on <strong>generative modeling</strong>, particularly
+          <strong>diffusion-, flow-, and control-based image and video generation</strong>.
+          Recently, I have been working on <strong>long video generation</strong> and
+          <strong>one-step distillation</strong>.
         </p>
       </div>
 
@@ -348,13 +348,12 @@
 
     <div class="meta fade d2">
       <span class="label">Contact:</span>
-      swswss [at] snu [dot] ac [dot] kr
+      swswss [at] snu.ac.kr
       <br />
       <span class="label">Follow:</span>
-      <!-- Replace # with your real links -->
-      <a href="#" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://scholar.google.com/citations?user=nj33CGAAAAAJ&hl=ko" target="_blank" rel="noopener">Google Scholar</a>
       <span class="sep">|</span>
-      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/swswss" target="_blank" rel="noopener">GitHub</a>
     </div>
 
     <hr class="rule" />
@@ -365,23 +364,35 @@
       <!-- Dates below are best guesses based on conference cycles — please verify/adjust. -->
       <div class="updates">
         <div class="update">
-          <div class="date">2026</div>
-          <div class="body">Two papers accepted to <strong>ICML 2026</strong> (ASBM &amp; Equivariant Latent Alignment).</div>
+          <div class="date">04/2026</div>
+          <div class="body">
+            2 papers are accepted to <strong>ICML 2026</strong>.
+            <ul>
+              <li><span class="pname">ASBM</span>: Efficient Generative Modeling beyond Memoryless Diffusion via Adjoint Schrödinger Bridge Matching. <a href="https://arxiv.org/abs/2602.15396" target="_blank" rel="noopener">arxiv</a></li>
+              <li><span class="pname">Resident Latent Flow</span>: Equivariant Latent Alignment via Flow Matching under Group Symmetries. <a href="https://arxiv.org/abs/2605.30705" target="_blank" rel="noopener">arxiv</a></li>
+            </ul>
+          </div>
         </div>
         <div class="update">
-          <div class="date">2026</div>
-          <div class="body">Four papers under review at <strong>NeurIPS 2026</strong>.</div>
+          <div class="date">06/2025</div>
+          <div class="body">
+            1 paper is accepted to <strong>ICCV 2025</strong>.
+            <ul>
+              <li><span class="pname">LDMAE</span>: Latent Diffusion Models with Masked AutoEncoders.</li>
+            </ul>
+          </div>
         </div>
         <div class="update">
-          <div class="date">2025</div>
-          <div class="body"><em>Latent Diffusion Models with Masked AutoEncoders</em> accepted to <strong>ICCV 2025</strong>.</div>
+          <div class="date">09/2024</div>
+          <div class="body">
+            1 paper is accepted to <strong>NeurIPS 2024</strong>.
+            <ul>
+              <li><span class="pname">Self-MAE</span>: Self-Guided Masked Autoencoder.</li>
+            </ul>
+          </div>
         </div>
         <div class="update">
-          <div class="date">2024</div>
-          <div class="body"><em>Self-Guided Masked Autoencoder</em> accepted to <strong>NeurIPS 2024</strong>.</div>
-        </div>
-        <div class="update">
-          <div class="date">Mar 2024</div>
+          <div class="date">03/2024</div>
           <div class="body">Started my Ph.D. at the Graduate School of Data Science, SNU.</div>
         </div>
       </div>
@@ -394,7 +405,16 @@
         (∗ Equal contribution, † Equal advising)
       </p>
 
-      <!-- ===== Accepted ===== -->
+      <div class="pub">
+        <!-- Add teaser figure here when ready: assets/img/eff-adjoint.png -->
+        <div class="thumb"><!-- <img src="assets/img/eff-adjoint.png" alt=""> -->preview</div>
+        <div>
+          <div class="pub-title">Efficient Adjoint Matching for Fine-tuning Diffusion Models</div>
+          <div class="pub-authors"><span class="me">Jeongwoo Shin∗</span>, Dongsoo Shin∗, Yuchen Zhu, Wei Guo, Yongxin Chen, Joonseok Lee†, Jaewoong Choi†, Jaemoo Choi†</div>
+          <div class="pub-venue">Preprint</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2605.11480" target="_blank" rel="noopener">arxiv</a></div>
+        </div>
+      </div>
 
       <div class="pub">
         <div class="thumb"><!-- <img src="assets/img/asbm.png" alt=""> -->preview</div>
@@ -412,7 +432,8 @@
           <div class="pub-title">Equivariant Latent Alignment via Flow Matching under Group Symmetries</div>
           <div class="pub-authors">Sunghyun Kim∗, Jaehoon Hahm∗, <span class="me">Jeongwoo Shin</span>, Joonseok Lee†</div>
           <div class="pub-venue">International Conference on Machine Learning (ICML), 2026</div>
-          <div class="pub-links"><!-- <a href="#" target="_blank" rel="noopener">arxiv</a> --></div>
+          <!-- Paste the exact arXiv URL between the quotes below -->
+          <div class="pub-links"><a href="https://arxiv.org/abs/2605.30705" target="_blank" rel="noopener">arxiv</a></div>
         </div>
       </div>
 
@@ -422,7 +443,7 @@
           <div class="pub-title">Latent Diffusion Models with Masked AutoEncoders</div>
           <div class="pub-authors">Junho Lee∗, <span class="me">Jeongwoo Shin∗</span>, Hyungwook Choi, Joonseok Lee†</div>
           <div class="pub-venue">International Conference on Computer Vision (ICCV), 2025</div>
-          <div class="pub-links"><!-- <a href="#" target="_blank" rel="noopener">arxiv</a> --></div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2507.09984" target="_blank" rel="noopener">arxiv</a></div>
         </div>
       </div>
 
@@ -432,21 +453,7 @@
           <div class="pub-title">Self-Guided Masked Autoencoder</div>
           <div class="pub-authors"><span class="me">Jeongwoo Shin</span>, Inseo Lee, Junho Lee, Joonseok Lee†</div>
           <div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS), 2024</div>
-          <div class="pub-links"><!-- <a href="#" target="_blank" rel="noopener">arxiv</a> --></div>
-        </div>
-      </div>
-
-      <!-- ===== Under review ===== -->
-
-      <div class="pub">
-        <!-- This one has an arXiv link — add its teaser figure here when ready. -->
-        <div class="thumb"><!-- <img src="assets/img/eff-adjoint.png" alt=""> -->preview</div>
-        <div>
-          <div class="pub-title">Efficient Adjoint Matching for Fine-tuning Diffusion Models</div>
-          <div class="pub-authors"><span class="me">Jeongwoo Shin∗</span>, Dongsoo Shin∗, Yuchen Zhu, Wei Guo, Yongxin Chen, Joonseok Lee†, Jaewoong Choi†, Jaemoo Choi†</div>
-          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
-          <!-- Paste the exact arXiv URL between the quotes below -->
-          <div class="pub-links"><a href="#" target="_blank" rel="noopener">arxiv</a></div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2507.19773" target="_blank" rel="noopener">arxiv</a></div>
         </div>
       </div>
 
@@ -455,7 +462,7 @@
         <div>
           <div class="pub-title">Diverse Motion Customization via Control-based Dynamic Optimization</div>
           <div class="pub-authors">Youngyoon Choi∗, Kihyun Kim∗, <span class="me">Jeongwoo Shin†</span> (co-advising), Joonseok Lee†</div>
-          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
+          <div class="pub-venue">Preprint</div>
           <div class="pub-links"></div>
         </div>
       </div>
@@ -465,7 +472,7 @@
         <div>
           <div class="pub-title">No More Hit-and-Hope: Optimal Initial Noise Forging via Noise Shuffling</div>
           <div class="pub-authors">Suho Ryu, <span class="me">Jeongwoo Shin</span>, Joonseok Lee†</div>
-          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
+          <div class="pub-venue">Preprint</div>
           <div class="pub-links"></div>
         </div>
       </div>
@@ -475,7 +482,7 @@
         <div>
           <div class="pub-title">Optimal Crystal Flow for Fast and Reliable Crystal Generation</div>
           <div class="pub-authors">Seunghoon Yi, Youngwoo Cho, Jaehoon Hahm, <span class="me">Jeongwoo Shin</span>, Soo Kyung Kim†, Jaegul Choo†, Joonseok Lee†, Hongkee Yoon†</div>
-          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
+          <div class="pub-venue">Preprint</div>
           <div class="pub-links"></div>
         </div>
       </div>
