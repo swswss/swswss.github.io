@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Jeongwoo Shin — Ph.D. Student in Data Science @ Seoul National University. Generative modeling, diffusion, and flow matching." />
+  <title>Jeongwoo Shin</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #fdfdfc;
+      --surface: #ffffff;
+      --text: #1f2328;
+      --text-soft: #565d66;
+      --text-faint: #8a929c;
+      --line: #e7e7e2;
+      --accent: #9b2226;        /* refined academic crimson */
+      --accent-soft: #b8434a;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+      --maxw: 760px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s ease, color .15s ease;
+    }
+    a:hover { border-bottom-color: var(--accent); }
+
+    strong { font-weight: 600; color: var(--text); }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(253, 253, 252, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .2px;
+    }
+    .nav-name:hover { border-bottom-color: transparent; }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 15px;
+    }
+    .nav-links a {
+      color: var(--text-soft);
+      border-bottom: none;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 1.5px;
+      background: var(--accent);
+      transition: width .2s ease;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ---------- LAYOUT ---------- */
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 22px 80px;
+    }
+
+    .fade { opacity: 0; transform: translateY(8px); animation: rise .7s ease forwards; }
+    .d1 { animation-delay: .05s; }
+    .d2 { animation-delay: .15s; }
+    .d3 { animation-delay: .25s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .fade { animation: none; opacity: 1; transform: none; }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 168px;
+      gap: 34px;
+      align-items: start;
+      padding: 54px 0 8px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 42px;
+      line-height: 1.05;
+      margin: 0 0 6px;
+      letter-spacing: -0.4px;
+    }
+    .hero .role {
+      font-size: 16px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+    .photo {
+      width: 168px;
+      height: 168px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: linear-gradient(150deg, #efeee9, #e2e1db);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-faint);
+      font-size: 13px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .bio p { margin: 16px 0; }
+
+    .meta {
+      margin-top: 18px;
+      font-size: 16px;
+      color: var(--text-soft);
+      line-height: 1.9;
+    }
+    .meta .label {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .sep { color: var(--line); margin: 0 8px; }
+
+    /* ---------- SECTION ---------- */
+    .rule { border: none; border-top: 1px solid var(--line); margin: 46px 0 0; }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin: 38px 0 20px;
+    }
+
+    /* ---------- UPDATES ---------- */
+    .updates { display: flex; flex-direction: column; }
+    .update {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 15.5px;
+    }
+    .update:last-child { border-bottom: none; }
+    .update .date {
+      color: var(--text-faint);
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      font-size: 14px;
+      padding-top: 1px;
+    }
+    .update .body { color: var(--text-soft); }
+    .update .body strong { color: var(--text); }
+
+    /* ---------- PUBLICATIONS ---------- */
+    .pub {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 22px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .pub:last-child { border-bottom: none; }
+    .thumb {
+      width: 132px;
+      height: 92px;
+      border-radius: 8px;
+      border: 1px dashed var(--line);
+      background: #faf9f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-faint);
+      font-size: 11px;
+      letter-spacing: .4px;
+      overflow: hidden;
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .pub-title {
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      font-size: 16.5px;
+      margin-bottom: 4px;
+    }
+    .pub-authors {
+      font-size: 15px;
+      color: var(--text-soft);
+      margin-bottom: 3px;
+    }
+    .pub-authors .me { font-style: italic; font-weight: 600; color: var(--text); }
+    .pub-venue {
+      font-size: 14.5px;
+      color: var(--text-faint);
+      margin-bottom: 7px;
+    }
+    .pub-venue .badge {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      background: #f4e9e9;
+      color: var(--accent);
+      vertical-align: 1px;
+    }
+    .pub-venue .badge.review {
+      background: #eef0f2;
+      color: var(--text-soft);
+    }
+    .pub-links { font-size: 14px; }
+    .pub-links a {
+      margin-right: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .note {
+      font-size: 14px;
+      color: var(--text-faint);
+      margin: 14px 0 0;
+      font-style: italic;
+    }
+
+    footer {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 30px 22px 50px;
+      border-top: 1px solid var(--line);
+      color: var(--text-faint);
+      font-size: 13.5px;
+      text-align: center;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 620px) {
+      body { font-size: 16px; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 36px 0 4px;
+      }
+      .photo { width: 120px; height: 120px; order: -1; }
+      .hero h1 { font-size: 34px; }
+      .update { grid-template-columns: 78px 1fr; gap: 10px; }
+      .pub { grid-template-columns: 1fr; gap: 12px; }
+      .thumb { width: 100%; height: 150px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-name" href="#top">Jeongwoo Shin</a>
+      <div class="nav-links">
+        <a href="#top">about</a>
+        <a href="#publications">publications</a>
+        <!-- Replace href with your CV link, e.g. assets/cv.pdf -->
+        <a href="#" target="_blank" rel="noopener">CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap" id="top">
+
+    <!-- ============ HERO ============ -->
+    <header class="hero fade d1">
+      <div class="bio">
+        <p class="role">Ph.D. Student @ Seoul National University</p>
+        <h1>Jeongwoo Shin</h1>
+        <p>
+          Hi! I'm a Ph.D. student at the <strong>Graduate School of Data Science,
+          Seoul National University</strong>, advised by Prof.
+          <a href="https://scholar.google.com/citations?user=M-MfqpMAAAAJ&hl" target="_blank" rel="noopener">Joonseok Lee</a>.
+          I previously received my <strong>M.S. in Data Science</strong> at SNU
+          (thesis: <em>Self-Guided Masked Autoencoder</em>) and a B.S. in Landscape
+          Architecture and Rural System Engineering, also at SNU.
+        </p>
+        <p>
+          My research centers on <strong>generative modeling</strong>—in particular
+          <strong>diffusion and flow matching</strong>. I am interested in
+          <strong>reward fine-tuning of diffusion models</strong>,
+          <strong>stochastic optimal control</strong>,
+          <strong>diffusion/flow model distillation</strong>, and
+          <strong>long video generation</strong>, along with the algorithmic and
+          theoretical foundations connecting them.
+        </p>
+      </div>
+
+      <!-- To add your photo: drop an image at assets/img/profile.jpg and
+           replace this <div> with: <img class="photo" src="assets/img/profile.jpg" alt="Jeongwoo Shin"> -->
+      <div class="photo">add&nbsp;profile&nbsp;photo</div>
+    </header>
+
+    <div class="meta fade d2">
+      <span class="label">Contact:</span>
+      swswss [at] snu [dot] ac [dot] kr
+      <br />
+      <span class="label">Follow:</span>
+      <!-- Replace # with your real links -->
+      <a href="#" target="_blank" rel="noopener">Google Scholar</a>
+      <span class="sep">|</span>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- ============ UPDATES ============ -->
+    <section class="fade d3">
+      <h2 class="section-title">Updates</h2>
+      <!-- Dates below are best guesses based on conference cycles — please verify/adjust. -->
+      <div class="updates">
+        <div class="update">
+          <div class="date">2026</div>
+          <div class="body">Two papers accepted to <strong>ICML 2026</strong> (ASBM &amp; Equivariant Latent Alignment).</div>
+        </div>
+        <div class="update">
+          <div class="date">2026</div>
+          <div class="body">Four papers under review at <strong>NeurIPS 2026</strong>.</div>
+        </div>
+        <div class="update">
+          <div class="date">2025</div>
+          <div class="body"><em>Latent Diffusion Models with Masked AutoEncoders</em> accepted to <strong>ICCV 2025</strong>.</div>
+        </div>
+        <div class="update">
+          <div class="date">2024</div>
+          <div class="body"><em>Self-Guided Masked Autoencoder</em> accepted to <strong>NeurIPS 2024</strong>.</div>
+        </div>
+        <div class="update">
+          <div class="date">Mar 2024</div>
+          <div class="body">Started my Ph.D. at the Graduate School of Data Science, SNU.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PUBLICATIONS ============ -->
+    <section id="publications">
+      <h2 class="section-title">Selected Publications</h2>
+      <p class="note" style="font-style:normal;">
+        (∗ Equal contribution, † Equal advising)
+      </p>
+
+      <!-- ===== Accepted ===== -->
+
+      <div class="pub">
+        <div class="thumb"><!-- <img src="assets/img/asbm.png" alt=""> -->preview</div>
+        <div>
+          <div class="pub-title">Efficient Generative Modeling beyond Memoryless Diffusion via Adjoint Schrödinger Bridge Matching</div>
+          <div class="pub-authors"><span class="me">Jeongwoo Shin</span>, Jinhwan Sul, Joonseok Lee†, Jaewoong Choi†, Jaemoo Choi†</div>
+          <div class="pub-venue">International Conference on Machine Learning (ICML), 2026</div>
+          <div class="pub-links"><a href="https://arxiv.org/abs/2602.15396" target="_blank" rel="noopener">arxiv</a></div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="thumb"><!-- <img src="assets/img/equivariant.png" alt=""> -->preview</div>
+        <div>
+          <div class="pub-title">Equivariant Latent Alignment via Flow Matching under Group Symmetries</div>
+          <div class="pub-authors">Sunghyun Kim∗, Jaehoon Hahm∗, <span class="me">Jeongwoo Shin</span>, Joonseok Lee†</div>
+          <div class="pub-venue">International Conference on Machine Learning (ICML), 2026</div>
+          <div class="pub-links"><!-- <a href="#" target="_blank" rel="noopener">arxiv</a> --></div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="thumb"><!-- <img src="assets/img/ldm-mae.png" alt=""> -->preview</div>
+        <div>
+          <div class="pub-title">Latent Diffusion Models with Masked AutoEncoders</div>
+          <div class="pub-authors">Junho Lee∗, <span class="me">Jeongwoo Shin∗</span>, Hyungwook Choi, Joonseok Lee†</div>
+          <div class="pub-venue">International Conference on Computer Vision (ICCV), 2025</div>
+          <div class="pub-links"><!-- <a href="#" target="_blank" rel="noopener">arxiv</a> --></div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="thumb"><!-- <img src="assets/img/sgmae.png" alt=""> -->preview</div>
+        <div>
+          <div class="pub-title">Self-Guided Masked Autoencoder</div>
+          <div class="pub-authors"><span class="me">Jeongwoo Shin</span>, Inseo Lee, Junho Lee, Joonseok Lee†</div>
+          <div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS), 2024</div>
+          <div class="pub-links"><!-- <a href="#" target="_blank" rel="noopener">arxiv</a> --></div>
+        </div>
+      </div>
+
+      <!-- ===== Under review ===== -->
+
+      <div class="pub">
+        <!-- This one has an arXiv link — add its teaser figure here when ready. -->
+        <div class="thumb"><!-- <img src="assets/img/eff-adjoint.png" alt=""> -->preview</div>
+        <div>
+          <div class="pub-title">Efficient Adjoint Matching for Fine-tuning Diffusion Models</div>
+          <div class="pub-authors"><span class="me">Jeongwoo Shin∗</span>, Dongsoo Shin∗, Yuchen Zhu, Wei Guo, Yongxin Chen, Joonseok Lee†, Jaewoong Choi†, Jaemoo Choi†</div>
+          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
+          <!-- Paste the exact arXiv URL between the quotes below -->
+          <div class="pub-links"><a href="#" target="_blank" rel="noopener">arxiv</a></div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="thumb"></div>
+        <div>
+          <div class="pub-title">Diverse Motion Customization via Control-based Dynamic Optimization</div>
+          <div class="pub-authors">Youngyoon Choi∗, Kihyun Kim∗, <span class="me">Jeongwoo Shin†</span> (co-advising), Joonseok Lee†</div>
+          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
+          <div class="pub-links"></div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="thumb"></div>
+        <div>
+          <div class="pub-title">No More Hit-and-Hope: Optimal Initial Noise Forging via Noise Shuffling</div>
+          <div class="pub-authors">Suho Ryu, <span class="me">Jeongwoo Shin</span>, Joonseok Lee†</div>
+          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
+          <div class="pub-links"></div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="thumb"></div>
+        <div>
+          <div class="pub-title">Optimal Crystal Flow for Fast and Reliable Crystal Generation</div>
+          <div class="pub-authors">Seunghoon Yi, Youngwoo Cho, Jaehoon Hahm, <span class="me">Jeongwoo Shin</span>, Soo Kyung Kim†, Jaegul Choo†, Joonseok Lee†, Hongkee Yoon†</div>
+          <div class="pub-venue">Under review<span class="badge review">NeurIPS 2026</span></div>
+          <div class="pub-links"></div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer>
+    © 2026 Jeongwoo Shin · Built in the spirit of the al-folio academic theme.
+  </footer>
+
+</body>
+</html>
