@@ -23,7 +23,7 @@
       --accent-soft: #b8434a;
       --serif: "Newsreader", Georgia, "Times New Roman", serif;
       --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
-      --maxw: 760px;
+      --maxw: 912px;
     }
 
     * { box-sizing: border-box; }
@@ -126,13 +126,13 @@
     .hero h1 {
       font-family: var(--serif);
       font-weight: 600;
-      font-size: 28px;
+      font-size: 22px;
       line-height: 1.1;
       margin: 0 0 6px;
       letter-spacing: -0.2px;
     }
     .hero .role {
-      font-size: 16px;
+      font-size: 16.5px;
       color: var(--text-soft);
       text-transform: uppercase;
       letter-spacing: 1.2px;
@@ -155,11 +155,11 @@
       overflow: hidden;
     }
 
-    .bio p { margin: 16px 0; }
+    .bio p { margin: 16px 0; font-size: 16.5px; line-height: 1.6; }
 
     .meta {
       margin-top: 18px;
-      font-size: 16px;
+      font-size: 16.5px;
       color: var(--text-soft);
       line-height: 1.9;
     }
@@ -203,7 +203,7 @@
     .update .body strong { color: var(--text); }
     .update .body ul { margin: 7px 0 2px; padding-left: 18px; }
     .update .body li { margin: 3px 0; font-size: 14.5px; line-height: 1.5; }
-    .update .body li .pname { font-weight: 600; color: var(--text); }
+    .update .body li .pname { font-weight: 600; color: var(--accent); }
     .update .body li a { font-weight: 600; }
 
     /* ---------- PUBLICATIONS ---------- */
@@ -297,7 +297,7 @@
         padding: 36px 0 4px;
       }
       .photo { width: 120px; height: 120px; order: -1; }
-      .hero h1 { font-size: 24px; }
+      .hero h1 { font-size: 19px; }
       .update { grid-template-columns: 78px 1fr; gap: 10px; }
       .pub { grid-template-columns: 1fr; gap: 12px; }
       .thumb { width: 100%; height: 150px; }
@@ -368,8 +368,8 @@
           <div class="body">
             2 papers are accepted to <strong>ICML 2026</strong>.
             <ul>
-              <li><span class="pname">ASBM</span>: Efficient Generative Modeling beyond Memoryless Diffusion via Adjoint Schrödinger Bridge Matching. <a href="https://arxiv.org/abs/2602.15396" target="_blank" rel="noopener">arxiv</a></li>
-              <li><span class="pname">Resident Latent Flow</span>: Equivariant Latent Alignment via Flow Matching under Group Symmetries. <a href="https://arxiv.org/abs/2605.30705" target="_blank" rel="noopener">arxiv</a></li>
+              <li><a class="pname" href="https://arxiv.org/abs/2602.15396" target="_blank" rel="noopener">ASBM</a>: Efficient Generative Modeling beyond Memoryless Diffusion via Adjoint Schrödinger Bridge Matching.</li>
+              <li><a class="pname" href="#" target="_blank" rel="noopener">Resident Latent Flow</a>: Equivariant Latent Alignment via Flow Matching under Group Symmetries.</li>
             </ul>
           </div>
         </div>
@@ -378,7 +378,7 @@
           <div class="body">
             1 paper is accepted to <strong>ICCV 2025</strong>.
             <ul>
-              <li><span class="pname">LDMAE</span>: Latent Diffusion Models with Masked AutoEncoders.</li>
+              <li><a class="pname" href="https://arxiv.org/abs/2507.09984" target="_blank" rel="noopener">LDMAE</a>: Latent Diffusion Models with Masked AutoEncoders.</li>
             </ul>
           </div>
         </div>
@@ -387,7 +387,7 @@
           <div class="body">
             1 paper is accepted to <strong>NeurIPS 2024</strong>.
             <ul>
-              <li><span class="pname">Self-MAE</span>: Self-Guided Masked Autoencoder.</li>
+              <li><a class="pname" href="https://arxiv.org/abs/2507.19773" target="_blank" rel="noopener">Self-MAE</a>: Self-Guided Masked Autoencoder.</li>
             </ul>
           </div>
         </div>
@@ -433,7 +433,7 @@
           <div class="pub-authors">Sunghyun Kim∗, Jaehoon Hahm∗, <span class="me">Jeongwoo Shin</span>, Joonseok Lee†</div>
           <div class="pub-venue">International Conference on Machine Learning (ICML), 2026</div>
           <!-- Paste the exact arXiv URL between the quotes below -->
-          <div class="pub-links"><a href="https://arxiv.org/abs/2605.30705" target="_blank" rel="noopener">arxiv</a></div>
+          <div class="pub-links"><a href="#" target="_blank" rel="noopener">arxiv</a></div>
         </div>
       </div>
 
