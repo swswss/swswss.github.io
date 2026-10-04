@@ -12,6 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
+  <!-- Icons: Font Awesome (LinkedIn, GitHub) + Academicons (Google Scholar) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" />
+
   <style>
     :root {
       --bg: #fdfdfc;
@@ -169,7 +173,10 @@
       font-weight: 600;
       color: var(--text);
     }
-    .sep { color: var(--line); margin: 0 8px; }
+    .meta a i {
+      margin-right: 5px;
+    }
+    .sep { color: var(--text); margin: 0; }
 
     /* ---------- SECTION ---------- */
     .rule { border: none; border-top: 1px solid var(--line); margin: 46px 0 0; }
@@ -345,9 +352,11 @@
       swswss [at] snu.ac.kr
       <br />
       <span class="label">Follow:</span>
-      <a href="https://scholar.google.com/citations?user=nj33CGAAAAAJ&hl=ko" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://scholar.google.com/citations?user=nj33CGAAAAAJ&hl=ko" target="_blank" rel="noopener"><i class="ai ai-google-scholar" aria-hidden="true"></i>Google Scholar</a>
       <span class="sep">|</span>
-      <a href="https://github.com/swswss" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/jeongwoo-shin-b4795a41a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/swswss" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
     </div>
 
     <hr class="rule" />
