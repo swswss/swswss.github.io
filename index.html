@@ -49,41 +49,43 @@
     strong { font-weight: 700; }
 
     .container {
-      max-width: var(--maxw);
+      width: 60%;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 24px;
     }
 
     /* ---------- HERO ---------- */
-    .intro { padding-top: 90px; padding-bottom: 10px; }
+    .intro { padding-top: 200px; padding-bottom: 10px; }
     .hero {
       display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 40px;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
       align-items: start;
     }
     h1.name {
       font-family: var(--serif);
       font-weight: 700;
-      font-size: 40px;
-      line-height: 1.15;
+      font-size: 34px;
+      line-height: 1.2;
       margin: 0;
     }
     .lead {
       font-size: 22px;
       font-weight: 300;
       line-height: 32px;
-      margin: 36px 0 0;
+      margin: 44px 0 0;
     }
     .photo {
-      width: 220px;
-      height: 220px;
+      width: 60%;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
       object-fit: cover;
       border-radius: 14px;
       box-shadow: 0 0 12px -2px #e2e2e2;
       display: block;
     }
-    .bio { margin-top: 10px; text-align: justify; }
+    .bio { margin-top: 30px; text-align: justify; }
+    .seeking { color: var(--link); font-style: italic; font-weight: 700; }
     .bio p { font-size: 16px; line-height: 31px; margin: 18px 0 0; }
     .emph { color: var(--emph); font-weight: 700; }
 
@@ -177,11 +179,16 @@
     }
 
     /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1024px) {
+      .container { width: 80%; }
+      .intro { padding-top: 120px; }
+    }
     @media (max-width: 760px) {
+      .container { width: auto; padding: 0 20px; }
       .intro { padding-top: 48px; }
       .hero { grid-template-columns: 1fr; gap: 24px; }
-      .photo { width: 140px; height: 140px; order: -1; }
-      h1.name { font-size: 34px; }
+      .photo { width: 130px; margin: 0; order: -1; }
+      h1.name { font-size: 30px; }
       .lead { margin-top: 14px; font-size: 19px; line-height: 28px; }
       .bio { text-align: left; }
       .publication { grid-template-columns: 1fr; gap: 14px; margin: 32px 0; }
@@ -226,7 +233,7 @@
         Recently, I have been working on long video generation and one-step distillation.
       </p>
       <p>
-        <span class="emph">[New]</span> I am actively seeking internship opportunities.
+        <span class="emph">[New]</span> <span class="seeking">I am actively seeking internship opportunities!</span>
       </p>
     </div>
 
