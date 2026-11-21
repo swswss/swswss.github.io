@@ -19,11 +19,11 @@
       --text: #15171a;
       --text-soft: #3a3f47;
       --muted: #5b6a9a;
-      --link: #3482dc;
+      --link: #3067ff;
       --pill: #eef0f7;
       --pill-hover: #d3d6e1;
       --emph: #ea4d4d;
-      --venue: #3067ff;
+      --venue: var(--link);
       --line: #eceef3;
       --serif: "Merriweather", Georgia, serif;
       --sans: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -96,7 +96,7 @@
       align-items: center;
       gap: 7px;
       background: var(--pill);
-      color: var(--link);
+      color: var(--text);
       border: 0;
       border-radius: 40px;
       padding: 2px 14px;
@@ -165,7 +165,8 @@
     .pub-title { font-weight: 700; margin: 0; }
     .pub-authors { margin: 2px 0 0; }
     .pub-authors .me { font-weight: 700; }
-    .pub-venue { font-style: italic; font-weight: 700; color: var(--venue); margin: 2px 0 8px; }
+    .pub-venue { font-style: italic; font-weight: 400; color: var(--venue); margin: 2px 0 8px; }
+    .pub-venue .emph { font-weight: 400; }
     .pub-links { display: flex; flex-wrap: wrap; gap: 8px; }
 
     footer {
